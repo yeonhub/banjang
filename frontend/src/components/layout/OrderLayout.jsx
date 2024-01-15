@@ -2,13 +2,16 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import OrderHeader from '../Order/OrderHeader';
 import OrderFooter from '../Order/OrderFooter';
+import '../../assets/css/BJitemScss/OrderLayoutScss.scss'
 
 const OrderLayout = () => {
     return (
         <>
-            <OrderHeader />
-            <Outlet />
-            <OrderFooter />
+            <div id='orderLayout'>
+                <OrderHeader />
+                <Outlet />
+                <OrderFooter />
+            </div>
         </>
     );
 };

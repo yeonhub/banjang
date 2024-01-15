@@ -1,0 +1,39 @@
+#home {
+    .homeLogoDiv {
+        position: relative;
+        width: 100dvw;
+        height: 100dvh;
+        background: #000000;
+
+        .homeLogoImg {
+            position: absolute;
+            width: 38.46vw;
+            height: 13.08vw;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 35.49vh;
+        }
+    }
+
+    .homeOrderDiv {
+        position: absolute;
+        width: 44.10vw;
+        height: 22.56vw;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 47.08vh;
+        margin: auto;
+        background: #FFFFFF;
+        border-radius: 5.13vw;
+        border: none;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 6.41vw;
+        line-height: 7.69vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000000;
+    }
+}

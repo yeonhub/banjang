@@ -1,0 +1,29 @@
+#complete {
+    background-color: white;
+    width: 100dvw;
+    height: 100dvh;
+
+    .checkicon {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 44%;
+    }
+
+    .completeP {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 4.62vw;
+        line-height: 5.64vw;
+        /* identical to box height */
+        text-align: center;
+
+        color: #000000;
+    }
+}

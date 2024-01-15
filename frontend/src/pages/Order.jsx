@@ -1,9 +1,13 @@
 import React from 'react';
+import '../assets/css/BJitemScss/OrderScss.scss'
+import OrderLoading from '../components/Order/OrderLoading';
 
 const Order = () => {
     return (
         <>
-            order
+            <div id='order'>
+                <OrderLoading />
+            </div>
         </>
     );
 };

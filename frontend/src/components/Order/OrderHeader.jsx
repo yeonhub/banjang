@@ -3,7 +3,9 @@ import React from 'react';
 const OrderHeader = () => {
     return (
         <>
-            header
+            <div className='orderHeaderDiv'>
+                <img className='orderHeaderLogo' src="./images/order/logo-black.png" alt="banjanglogo" />
+            </div>
         </>
     );
 };
