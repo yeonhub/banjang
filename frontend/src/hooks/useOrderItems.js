@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { decrementStack, getBJitem, incrementStack } from "../store/modules/BJitemSlice";
+import { decrementStack, getBJitem, getBJitemASC, incrementStack } from "../store/modules/BJitemSlice";
 import { useEffect } from "react";
 
 export const useOrderItems = () => {
@@ -8,7 +8,8 @@ export const useOrderItems = () => {
     const loading = useSelector((state) => state.BJitemReducer.loading);
 
     useEffect(() => {
-        dispatch(getBJitem());
+        // dispatch(getBJitem());
+        dispatch(getBJitemASC());
     }, [dispatch]);
 
     const handleIncrement = id => dispatch(incrementStack(id));

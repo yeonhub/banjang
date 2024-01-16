@@ -12,15 +12,37 @@ const initialState = {
     totalPrice: 0
 }
 
-// items get
+// items get (로컬 서버 사용)
+// export const getBJitem = createAsyncThunk(
+//     'BJitem/getBJitem',
+//     async () => {
+//         const res = await axios.get(`http://localhost:3001/items`)
+//         const data = res.data.map(item => ({ ...item, stack: 0 }))
+//         return data
+//     }
+// )
+
+// items get (AWS 서버 사용)
 export const getBJitem = createAsyncThunk(
     'BJitem/getBJitem',
     async () => {
-        const res = await axios.get(`http://localhost:3001/items`)
+        const res = await axios.get(`http://localhost:3000/api/getBanjangItem`)
         const data = res.data.map(item => ({ ...item, stack: 0 }))
         return data
     }
 )
+
+// items get (AWS 서버 사용 / name ASC)
+export const getBJitemASC = createAsyncThunk(
+    'BJitem/getBJitemASC',
+    async () => {
+        const res = await axios.get(`http://localhost:3000/api/getBanjangItemASC`)
+        const data = res.data.map(item => ({ ...item, stack: 0 }))
+        return data
+    }
+)
+
+
 // 주문하기
 export const placeOrder = createAsyncThunk(
     'BJitem/placeOrder',
@@ -77,6 +99,19 @@ export const BJitemSlice = createSlice({
             })
             // item get 실패
             .addCase(getBJitem.rejected, (state) => {
+                state.loading = false;
+            })
+            // item ASC get 로딩중
+            .addCase(getBJitemASC.pending, (state) => {
+                state.loading = true;
+            })
+            // item ASC get 성공
+            .addCase(getBJitemASC.fulfilled, (state, action) => {
+                state.BJitem = action.payload;
+                state.loading = false;
+            })
+            // item ASC get 실패
+            .addCase(getBJitemASC.rejected, (state) => {
                 state.loading = false;
             })
             // order 로딩중
