@@ -68,18 +68,15 @@ export const BJitemSlice = createSlice({
         builder
             // item get 로딩중
             .addCase(getBJitem.pending, (state) => {
-                console.log('- 상품 로드 중 -');
                 state.loading = true;
             })
             // item get 성공
             .addCase(getBJitem.fulfilled, (state, action) => {
-                console.log('- 상품 로드 성공 -');
                 state.BJitem = action.payload;
                 state.loading = false;
             })
             // item get 실패
             .addCase(getBJitem.rejected, (state) => {
-                console.log('- 상품 로드 실패 -');
                 state.loading = false;
             })
             // order 로딩중

@@ -1,44 +1,23 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getBJitem, incrementStack, decrementStack } from '../store/modules/BJitemSlice';
+import React from 'react';
 import '../assets/css/BJitemScss/OrderScss.scss'
 import OrderLoading from '../components/Order/OrderLoading';
+import { useOrderItems } from '../hooks/useOrderItems';
+import { OrderItem } from '../components/Order/OrderItem';
 
 const Order = () => {
-    const dispatch = useDispatch();
-    const BJitem = useSelector((state) => state.BJitemReducer.BJitem);
-    const loading = useSelector((state) => state.BJitemReducer.loading);
-
-    useEffect(() => {
-        dispatch(getBJitem());
-    }, [dispatch]);
-
+    const { BJitem, loading, handleIncrement, handleDecrement } = useOrderItems();
     return (
         <>
             <div id='order'>
                 <ul className='orderItemUl'>
                     {
                         BJitem.map((item) => (
-                            <li className='orderItemLi' key={item.id} style={item.stack > 0 ? { background: 'rgba(247, 90, 47, 0.1)' } : null}>
-                                <div className='itemImg'></div>
-                                <div className='itemInfo'>
-                                    <div className='itemNameDiv'>
-                                        <h2 className='itemName'>{item.name}</h2>
-                                        {
-                                            item.event ? <div className='itemEvent'>이벤트</div> : null
-                                        }
-
-                                    </div>
-                                    <div className='itemPriceDiv'>
-                                        <div className='itemCount'>
-                                            <span onClick={() => dispatch(decrementStack(item.id))}>- </span>
-                                            <span>{item.stack}</span>
-                                            <span onClick={() => dispatch(incrementStack(item.id))}> +</span>
-                                        </div>
-                                        <span className='itemPrice'>{Number(item.price).toLocaleString()}원</span>
-                                    </div>
-                                </div>
-                            </li>
+                            <OrderItem
+                                key={item.id}
+                                item={item}
+                                onIncrement={id => handleIncrement(id)}
+                                onDecrement={id => handleDecrement(id)}
+                            />
                         ))
                     }
                 </ul>
