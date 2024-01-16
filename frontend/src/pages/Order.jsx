@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBJitem } from '../store/modules/BJitemSlice';
+import { getBJitem, incrementStack, decrementStack } from '../store/modules/BJitemSlice';
 import '../assets/css/BJitemScss/OrderScss.scss'
 import OrderLoading from '../components/Order/OrderLoading';
 
@@ -13,14 +13,13 @@ const Order = () => {
         dispatch(getBJitem());
     }, [dispatch]);
 
-    console.log(BJitem);
     return (
         <>
             <div id='order'>
                 <ul className='orderItemUl'>
                     {
                         BJitem.map((item) => (
-                            <li className='orderItemLi' key={item.id}>
+                            <li className='orderItemLi' key={item.id} style={item.stack > 0 ? { background: 'rgba(247, 90, 47, 0.1)' } : null}>
                                 <div className='itemImg'></div>
                                 <div className='itemInfo'>
                                     <div className='itemNameDiv'>
@@ -32,11 +31,11 @@ const Order = () => {
                                     </div>
                                     <div className='itemPriceDiv'>
                                         <div className='itemCount'>
-                                            <span>- </span>
-                                            <span>5</span>
-                                            <span> +</span>
+                                            <span onClick={() => dispatch(decrementStack(item.id))}>- </span>
+                                            <span>{item.stack}</span>
+                                            <span onClick={() => dispatch(incrementStack(item.id))}> +</span>
                                         </div>
-                                        <span className='itemPrice'>{item.price}원</span>
+                                        <span className='itemPrice'>{Number(item.price).toLocaleString()}원</span>
                                     </div>
                                 </div>
                             </li>
