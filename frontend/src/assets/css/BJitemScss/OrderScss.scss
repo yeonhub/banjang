@@ -12,7 +12,7 @@
 
         .loadingSpan {
             display: block;
-            
+
             font-family: 'Inter';
             font-style: normal;
             font-weight: 400;
@@ -21,6 +21,92 @@
             text-align: center;
 
             color: #000000;
+        }
+    }
+
+    .orderItemUl {
+        color: black;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        text-align: center;
+        padding: 3dvh 11.5dvw;
+        box-sizing: border-box;
+
+        .orderItemLi {
+            position: relative;
+            display: inline-block;
+            box-sizing: border-box;
+            width: 77dvw;
+            height: 9dvh;
+            // background: rgba(247, 90, 47, 0.1);
+            border: 0.26vw solid rgba(0, 0, 0, 0.3);
+            border-radius: 2.56vw;
+            margin-bottom: 3dvh;
+            padding: 0.8dvh;
+            display: flex;
+
+            .itemImg {
+                background: #d9d9d9;
+                width: 7.4dvh;
+                height: 7.4dvh;
+
+            }
+
+            .itemInfo {
+                margin-left: 4dvw;
+                margin-right: 2dvw;
+                width: 51dvw;
+
+                .itemNameDiv {
+                    display: flex;
+
+                    .itemName {
+                        font-family: 'Inter';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 4.62vw;
+                        line-height: 5.64vw;
+                        color: #000000;
+                    }
+
+                    .itemEvent {
+                        margin-left: 4dvw;
+                        width: 13.5897vw;
+                        height: 2.6974vh;
+                        background: #F75A2F;
+                        border-radius: 2.5641vw;
+                        font-style: normal;
+                        font-size: 3.3333vw;
+                        line-height: 4.6154vw;
+                        letter-spacing: 0.0410vw;
+                        color: white;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                    }
+                }
+
+                .itemPriceDiv {
+                    display: flex;
+                    margin: 1.8dvh 0;
+                    align-items: center;
+                    font-style: normal;
+                    font-size: 4.6154vw;
+                    line-height: 5.6410vw;
+                    justify-content: space-between;
+
+                    .itemCount {}
+
+                    .itemPrice {}
+                }
+            }
+        }
+
+        .orderItemLi:last-child {
+            margin-bottom: 0;
+
         }
     }
 }

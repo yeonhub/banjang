@@ -14,10 +14,9 @@
 
         .orderHeaderLogo {
             position: absolute;
-            width: 24.13vw;
-            height: 8.21vw;
+            height: 4.11vh;
             left: 3.08vw;
-            top: 3.33vw;
+            top: 1.5vh;
         }
     }
 
@@ -39,7 +38,6 @@
             font-style: normal;
             font-weight: 400;
             font-size: 4.62vw;
-            line-height: 5.64vw;
             text-align: right;
 
             .totalCount {
@@ -64,7 +62,6 @@
                 font-style: normal;
                 font-weight: 400;
                 font-size: 4.62vw;
-                line-height: 5.64vw;
                 color: white;
             }
         }
