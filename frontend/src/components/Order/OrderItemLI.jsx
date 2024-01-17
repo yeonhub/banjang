@@ -1,4 +1,4 @@
-export const OrderItem = ({ item, onIncrement, onDecrement }) => (
+export const OrderItemLI = ({ item, onIncrement, onDecrement }) => (
     <li className='orderItemLi' key={item.id} style={item.stack > 0 ? { background: 'rgba(247, 90, 47, 0.1)' } : null}>
         <div className='itemImg'></div>
         <div className='itemInfo'>

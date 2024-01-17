@@ -2,9 +2,11 @@ import React from 'react';
 import '../assets/css/BJitemScss/OrderScss.scss'
 import OrderLoading from '../components/Order/OrderLoading';
 import { useOrderItems } from '../hooks/useOrderItems';
-import { OrderItem } from '../components/Order/OrderItem';
+import { OrderItemLI } from '../components/Order/OrderItemLI';
 
 const Order = () => {
+    
+    // item get하는 hook 호출 및 data 받아오기
     const { BJitem, loading, handleIncrement, handleDecrement } = useOrderItems();
     return (
         <>
@@ -12,7 +14,7 @@ const Order = () => {
                 <ul className='orderItemUl'>
                     {
                         BJitem.map((item) => (
-                            <OrderItem
+                            <OrderItemLI
                                 key={item.id}
                                 item={item}
                                 onIncrement={id => handleIncrement(id)}

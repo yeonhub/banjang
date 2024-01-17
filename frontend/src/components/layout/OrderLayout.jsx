@@ -8,6 +8,8 @@ const OrderLayout = () => {
     return (
         <>
             <div id='orderLayout'>
+                
+                {/* Header, Footer 고정 */}
                 <OrderHeader />
                 <Outlet />
                 <OrderFooter />

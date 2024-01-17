@@ -26,7 +26,7 @@ const initialState = {
 export const getBJitem = createAsyncThunk(
     'BJitem/getBJitem',
     async () => {
-        const res = await axios.get(`http://localhost:3000/api/getBanjangItem`)
+        const res = await axios.get(`http://13.124.2.18:3000/api/getBanjangItem`)
         const data = res.data.map(item => ({ ...item, stack: 0 }))
         return data
     }
@@ -36,7 +36,7 @@ export const getBJitem = createAsyncThunk(
 export const getBJitemASC = createAsyncThunk(
     'BJitem/getBJitemASC',
     async () => {
-        const res = await axios.get(`http://localhost:3000/api/getBanjangItemASC`)
+        const res = await axios.get(`http://13.124.2.18:3000/api/getBanjangItemASC`)
         const data = res.data.map(item => ({ ...item, stack: 0 }))
         return data
     }
@@ -127,6 +127,8 @@ export const BJitemSlice = createSlice({
                 state.isOrderLoading = false;
                 if (action.payload.success) {
                     state.isOrder = true;
+
+                    // 주문 성공 시 기존 item 초기화
                     state.orderItems = [];
                     state.totalQuantity = 0;
                     state.totalPrice = 0;
