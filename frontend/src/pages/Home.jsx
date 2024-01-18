@@ -5,12 +5,10 @@ import '../assets/css/BJitemScss/HomeScss.scss'
 
 const Home = () => {
     return (
-        <>
-            <div id='home'>
-                <HomeLogo />
-                <HomeOrder />
-            </div>
-        </>
+        <div id='home'>
+            <HomeLogo />
+            <HomeOrder />
+        </div>
     );
 };
 

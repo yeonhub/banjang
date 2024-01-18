@@ -7,20 +7,26 @@ import Order from './pages/Order';
 import Complete from './pages/Complete';
 import Error from './pages/Error';
 
+const ROUTES = {
+  HOME: '/',
+  ORDER: '/order',
+  COMPLETE: '/complete',
+  ERROR: '/error',
+};
+
+
 const App = () => {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/order' element={<OrderLayout />}>
-            <Route index element={<Order />}/>
-          </Route>
-          <Route path='/complete' element={<Complete/>}/>
-          <Route path='/error' element={<Error/>}/>
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path={ROUTES.HOME} element={<Home />} />
+        <Route path={ROUTES.ORDER} element={<OrderLayout />}>
+          <Route index element={<Order />} />
+        </Route>
+        <Route path={ROUTES.COMPLETE} element={<Complete />} />
+        <Route path={ROUTES.ERROR} element={<Error />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
